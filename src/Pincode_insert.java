@@ -15,7 +15,7 @@ public class Pincode_insert implements Window {
     Label nameLabel = new Label("Enter PIN:");
     Button backButton = new Button("Back");
     Button nextButton = new Button("Next");
-    PasswordField passwordPasswordField = new PasswordField();
+    PasswordField passwordField = new PasswordField();
 
     public void createUI(Controller controller) {
         this.controller = controller;
@@ -34,7 +34,7 @@ public class Pincode_insert implements Window {
 
         nextButton.setOnAction(event -> {
 
-            if(passwordPasswordField.getText().equals(Integer.toString(controller.getCard().getPincode()))){
+            if(passwordField.getText().equals(Integer.toString(controller.getCard().getPincode()))){
                 on_pincode_insert();
             }
             else{
@@ -45,7 +45,7 @@ public class Pincode_insert implements Window {
         });
         tilePane.getChildren().addAll(h1, h2, h3, h4);
         tilePane.setMaxSize(300, 300);
-        VBox root = new VBox(nameLabel, passwordPasswordField, backButton, nextButton);
+        VBox root = new VBox(nameLabel, passwordField, backButton, nextButton);
         root.setAlignment(Pos.CENTER);
         root.getChildren().addAll(tilePane);
         Scene scene = new Scene(root, 800, 500);
@@ -59,7 +59,7 @@ public class Pincode_insert implements Window {
 
     public void on_pincode_insert() {
 
-            controller.pincode_insert(Integer.parseInt(passwordPasswordField.getText()));
+            controller.pincode_insert(Integer.parseInt(passwordField.getText()));
 
 
     }
