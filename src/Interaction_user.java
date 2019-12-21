@@ -1,0 +1,88 @@
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class Interaction_user implements Window {
+
+    Controller controller;
+    ToggleGroup group = new ToggleGroup();
+  //  String lang;
+
+
+    Label nameLabel = new Label("Choose operation:");
+    Button cashWithdrawalButton = new Button("Cash Withdrawal");
+    Button moneyTransferButton = new Button("Money Transfer");
+    Button servicesButton = new Button("Payment for services");
+    Button viewBillButton = new Button("Account balance");
+    Button returnButton = new Button("Return card");
+
+    public void createUI(Controller controller) {
+        this.controller = controller;
+       /* this.lang = lang;
+        if(lang == "Русский") {  nameLabel = new Label("Перевод денег:");
+            nameLabel = new Label("Выбрать операцию:");
+            cashWithdrawalButton = new Button("Снятие наличных");
+            moneyTransferButton = new Button("Перевод денег");
+            servicesButton = new Button("Оплата сервисов");
+            viewBillButton = new Button("Баланс аккаунта");
+            returnButton = new Button("Вернуть карту");
+        }
+        if(lang == "English"){
+            nameLabel = new Label("Choose operation:");
+            cashWithdrawalButton = new Button("Cash Withdrawal");
+            moneyTransferButton = new Button("Money Transfer");
+            servicesButton = new Button("Payment for services");
+            viewBillButton = new Button("Account balance");
+            returnButton = new Button("Return card");
+        }*/
+        Stage primaryStage = controller.getStage();
+
+        TilePane tilePane = new TilePane(Orientation.VERTICAL);
+        HBox h1 = new HBox();
+        HBox h2 = new HBox();
+        HBox h3 = new HBox();
+        HBox h4 = new HBox();
+
+
+
+        cashWithdrawalButton.setOnAction(event -> {
+            controller.cash_withdrawal(5);
+        });
+
+        moneyTransferButton.setOnAction(event -> {
+            controller.money_transfer(42558003, 500);
+        });
+
+        servicesButton.setOnAction(event -> {
+            controller.services("jojo", "hz", "hvatit", 120);
+        });
+
+        viewBillButton.setOnAction(event -> {
+            controller.view_bill();
+        });
+
+        returnButton.setOnAction(event -> {
+            controller.return_card();
+        });
+
+
+       // h2.getChildren().addAll(passwordLabel, passwordPasswordField);
+        tilePane.getChildren().addAll(h1, h2, h3, h4);
+        tilePane.setMaxSize(300, 300);
+        VBox root = new VBox(nameLabel, cashWithdrawalButton, moneyTransferButton, servicesButton, viewBillButton, returnButton);
+        root.setAlignment(Pos.CENTER);
+        root.getChildren().addAll(tilePane);
+        Scene scene = new Scene(root, 800, 500);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void createUI() {
+
+    }
+}
