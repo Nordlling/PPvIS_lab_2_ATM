@@ -8,36 +8,23 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Fill_money implements Window {
-    Controller controller;
 
-    Label moneyLabel = new Label("Fill money:");
-    Button nextButton = new Button("Add money");
-    TextField moneyField = new TextField();
-
-    public void createUI(){
-
+    public void setController(Controller controller){
     }
 
-    public void createUI(Controller controller){
-        this.controller = controller;
-        Stage primaryStage = controller.getStage();
+    private Controller controller;
 
-        nextButton.setOnAction(event -> {
-            on_fill_money();
-            controller.startWindow();
-        });
-        VBox root = new VBox(moneyLabel, moneyField, nextButton);
-        root.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(root, 800, 500);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public Controller getController(){
+        return controller;
+    }
+
+    public void createUI(){  }
+
+    public void createUI(Controller controller){
 
     }
 
     public void on_fill_money() {
-
-        // controller.money_transfer2(Double.parseDouble(amountField.getText()));
-        controller.startWindow();
 
     }
 }

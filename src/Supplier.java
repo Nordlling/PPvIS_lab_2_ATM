@@ -12,9 +12,6 @@ public class Supplier {
         Window money_transfer = new Money_transfer();
         Window services = new Services();
         Window return_card = new Return_card();
-        Window fill_money = new Fill_money();
-        Window fill_paper = new Fill_paper();
-
 
 
         windowList.add(language_choice);
@@ -26,11 +23,9 @@ public class Supplier {
         windowList.add(money_transfer);
         windowList.add(services);
         windowList.add(return_card);
-        windowList.add(fill_money);
-        windowList.add(fill_paper);
-
 
 
         return windowList;
     }
 }
+

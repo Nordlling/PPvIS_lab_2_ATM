@@ -4,7 +4,6 @@ public class Card {
 
     private  int pincode;
     private  int number;
-    private  Bill bill;
 
     public int getPincode() {
         return pincode;
@@ -14,11 +13,7 @@ public class Card {
         this.pincode = pincode;
     }
 
-    public Card(int pincode, int number) {
-        this.pincode = pincode;
-        this.number = number;
-        this.bill = new Bill(500);
-    }
+    private  Bill bill;
 
     public Bill getBill() {
         return bill;
@@ -35,17 +30,4 @@ public class Card {
     public void setNumber(int number) {
         this.number = number;
     }
-
-    public boolean money_transfer(double amount) {
-        if(bill.getSum()-amount >= 0){
-            this.bill.setSum(bill.getSum()-amount);
-            return true;
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText("Not enough money");
-            alert.showAndWait();
-            return false;
-        }
     }
-}

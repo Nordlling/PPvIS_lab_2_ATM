@@ -6,19 +6,18 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class ATM extends Application {
-    public static void main(String[] args){
-        launch(args);
-    }
 
+    private Card_insert card_insert = new Card_insert();
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Controller controller = new Controller(primaryStage);
+
+        card_insert.createUI();
         primaryStage.setTitle("Lab №2");
-        controller.card_insert(new Card(42558003, 1111));
         primaryStage.show();
         primaryStage.setOnCloseRequest((WindowEvent t) -> {
             Platform.exit();
             System.exit(0);
         });
+        }
     }
-}
+

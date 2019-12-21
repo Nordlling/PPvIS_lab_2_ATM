@@ -10,3 +10,4 @@ public class Paper {
         this.count = count;
     }
 }
+

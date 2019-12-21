@@ -8,44 +8,36 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class User_Choice implements Window {
-    Controller controller;
 
-    Label moneyLabel = new Label("Choose interaction::");
-    Button nextButton = new Button("Log in as user");
-    Button next1Button = new Button("Log in as technical support");
+    public void setUser(Interaction_user user){
+    }
 
+    private Interaction_user user;
+
+    public Interaction_user getInteraction_user(){
+        return user;
+    }
+
+    public void setTech_supp(Interaction_tech_supp tech_supp){
+    }
+
+    private Interaction_tech_supp tech_supp;
+
+    public Interaction_tech_supp getInteraction_tech_supp(){
+        return tech_supp;
+    }
 
     public void createUI(){
-        this.controller = controller;
-        Stage primaryStage = controller.getStage();
-
-        nextButton.setOnAction(event -> {
-            on_interaction_user();
-            controller.startWindow();
-        });
-        next1Button.setOnAction(event -> {
-            on_interaction_tech_supp();
-            controller.startWindow();
-        });
-        VBox root = new VBox(moneyLabel, nextButton, next1Button);
-        root.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(root, 800, 500);
-        primaryStage.setScene(scene);
-        primaryStage.show();
 
     }
 
     public void on_interaction_tech_supp() {
 
-        // controller.money_transfer2(Double.parseDouble(amountField.getText()));
-        controller.interaction_tech_supp();
 
     }
 
     public void on_interaction_user() {
 
-        // controller.money_transfer2(Double.parseDouble(amountField.getText()));
-        controller.interaction_user();
 
     }
 }

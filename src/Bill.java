@@ -5,10 +5,6 @@ public class Bill {
         return sum;
     }
 
-    public Bill(double sum) {
-        this.sum = sum;
-    }
-
     public void setSum(double sum) {
         this.sum = sum;
     }
